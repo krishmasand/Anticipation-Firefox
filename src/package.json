@@ -1,0 +1,15 @@
+{
+  "name": "anticipation",
+  "title": "Anticipation",
+  "id": "jid1-KVhHgMBsvyI4VA",
+  "description": "Hides video time on YouTube",
+  "author": "Krish Masand",
+  "preferences": [{
+        "name": "enabled",
+        "title": "Enabled",
+        "type": "bool",
+        "value": false
+    }],
+  "license": "MPL 2.0",
+  "version": "1.0"
+}
