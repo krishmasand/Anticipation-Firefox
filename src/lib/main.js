@@ -24,7 +24,7 @@ var panel;
 
 var panelEnabled = panels.Panel({
   width: 500,
-  height: 120,
+  height: 150,
   contentURL: self.data.url("panelEnabled.html")
 });
 

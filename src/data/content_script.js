@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 (document.body || document.documentElement).addEventListener('transitionend',
   function(/*TransitionEvent*/ event) {
+  	self.port.emit("checkEnabled", "pointless content");
     if (event.propertyName === 'width' && event.target.id === 'progress') {
     	window.onload = function () { hideTimes(); }
 		if(enabled){
