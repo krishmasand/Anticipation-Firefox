@@ -6,6 +6,7 @@ var pageMod = require("sdk/page-mod");
 var panels = require("sdk/panel");
 var self = require("sdk/self");
 var { ToggleButton } = require('sdk/ui/button/toggle');
+var { ActionButton } = require("sdk/ui/button/action");
 
 worker = pageMod.PageMod({
   include: "*",
@@ -23,13 +24,13 @@ var panel;
 
 var panelEnabled = panels.Panel({
   width: 500,
-  height: 90,
+  height: 120,
   contentURL: self.data.url("panelEnabled.html")
 });
 
 var panelDisabled = panels.Panel({
 	width: 500,
-  height: 90,
+  height: 120,
   contentURL: self.data.url("panelDisabled.html")
 });
 
@@ -43,17 +44,12 @@ else{
 
 updateButton();
 
-function handleChange(state) {
-}
-
 function handleClick(){
 	if(panel.isShowing){
 		panel.hide();
 	}
 	else{
 		preferences.enabled = !preferences.enabled;
-		worker.port.emit("enabled", preferences.enabled);
-
 		if(preferences.enabled){
 			panel = panelEnabled;
 		}
@@ -64,14 +60,15 @@ function handleClick(){
 	    panel.show({
 		  position: button
 	    });
-		button.state('window', {checked: false});
 		updateButton();
+		worker.port.emit("enabled", preferences.enabled);
+		button.state('window', {checked: false});
 	}
 }
 
 function updateButton(){
 	if(preferences.enabled){
-		button = ToggleButton({
+		button = ActionButton({
 			id: "anticipation",
 			label: "Anticipation",
 			icon: {
@@ -83,7 +80,7 @@ function updateButton(){
 		});
 	}
 	else{
-		button = ToggleButton({
+		button = ActionButton({
 			id: "anticipation",
 			label: "Anticipation",
 			icon: {
