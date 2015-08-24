@@ -2,19 +2,25 @@ var enabled = false;
 self.port.emit("checkEnabled", "pointless content");
 
 if(enabled){
-	hideTimes();
+	if(location.hostname.match('youtube')){
+		hideTimes();
+	}
 }
 
 self.port.on("enabled", function(message) {
 	 enabled = message;
-	 if(enabled){
-	 	hideTimes();
-	 }
+	if(enabled){
+		if(location.hostname.match('youtube')){
+			hideTimes();
+		}
+	}
 });
 
 document.addEventListener('DOMContentLoaded', function() {
 	if(enabled){
-		hideTimes();
+		if(location.hostname.match('youtube')){
+			hideTimes();
+		}
 	}
 });
 
@@ -24,7 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (event.propertyName === 'width' && event.target.id === 'progress') {
     	window.onload = function () { hideTimes(); }
 		if(enabled){
-        	hideTimes();
+			if(location.hostname.match('youtube')){
+				hideTimes();
+			}
 		}
     }
 }, true);
