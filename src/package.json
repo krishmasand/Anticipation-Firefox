@@ -1,8 +1,8 @@
 {
   "name": "anticipation",
-  "title": "Anticipation for YouTube",
+  "title": "Anticipation for YouTube and Twitch",
   "id": "jid1-KVhHgMBsvyI4VA",
-  "description": "Hides video time on YouTube",
+  "description": "Hides video time on YouTube and Twitch",
   "author": "Krish Masand",
   "preferences": [{
         "name": "enabled",
@@ -11,5 +11,5 @@
         "value": false
     }],
   "license": "MPL 2.0",
-  "version": "1.0.6.1"
+  "version": "1.1.0"
 }
