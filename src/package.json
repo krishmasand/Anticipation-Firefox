@@ -1,8 +1,9 @@
 {
   "name": "anticipation",
   "title": "Anticipation for YouTube and Twitch",
-  "id": "jid1-KVhHgMBsvyI4VA",
+  "id": "@jetpackjid1-KVhHgMBsvyI4VA",
   "description": "Hides video time on YouTube and Twitch",
+  "main": "lib/main.js",
   "author": "Krish Masand",
   "preferences": [{
         "name": "enabled",
