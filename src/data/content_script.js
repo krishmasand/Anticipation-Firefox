@@ -5,7 +5,7 @@ var enabled = false;
 self.port.emit("checkEnabled", "pointless content");
 
 if(enabled){
-	if(location.hostname.match('youtube') || location.hostname.match('twitch')){
+	if(location.hostname.match('youtube') || location.hostname.match('twitch') || location.hostname.match('vods')){
 		hideTimes();
 	}
 }
@@ -13,7 +13,7 @@ if(enabled){
 self.port.on("enabled", function(message) {
 	 enabled = message;
 	if(enabled){
-		if(location.hostname.match('youtube') || location.hostname.match('twitch')){
+		if(location.hostname.match('youtube') || location.hostname.match('twitch') || location.hostname.match('vods')){
 			hideTimes();
 		}
 	}
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (event.propertyName === 'width' && event.target.id === 'progress') {
     	window.onload = function () { hideTimes(); }
 		if(enabled){
-			if(location.hostname.match('youtube') || location.hostname.match('twitch')){
+			if(location.hostname.match('youtube') || location.hostname.match('twitch') || location.hostname.match('vods')){
 				hideTimes();
 			}
 		}
@@ -76,13 +76,14 @@ function hideTimes(){
 		var times = document.getElementsByClassName("player-seek__time player-seek__time--total")
 		for(i = 0; i < times.length; i++){
 			var vidTime = times[i];
-			vidTime.textContent="Time Hidden by Anticipation for YouTube and Twitch";
+			vidTime.textContent="Time Hidden by Anticipation for YouTube and Twitch - Use Arrow Keys to seek";
 		}
 		var times = document.getElementsByClassName("player-slider player-slider--roundhandle js-player-slider")
 		for(i = 0; i < times.length; i++){
 			var vidTime = times[i];
-			vidTime.textContent="Time Hidden by Anticipation for YouTube and Twitch - Use Arrow Keys to seek";
-			vidTime.style.textAlign = "center";
+			var par1 = vidTime.parentNode
+			par1.removeChild(vidTime);
+			i--;
 		}
 		var times = document.getElementsByClassName("card__meta card__meta--right")
 		for(i = 0; i < times.length; i++){
