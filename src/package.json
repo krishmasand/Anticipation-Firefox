@@ -1,7 +1,7 @@
 {
   "name": "anticipation",
   "title": "Anticipation for YouTube and Twitch",
-  "id": "@jetpackjid1-KVhHgMBsvyI4VA",
+  "id": "jid1-KVhHgMBsvyI4VA@jetpack",
   "description": "Hides video time on YouTube and Twitch",
   "main": "lib/main.js",
   "author": "Krish Masand",
@@ -12,5 +12,5 @@
         "value": false
     }],
   "license": "MPL 2.0",
-  "version": "1.1.0"
+  "version": "1.2.0"
 }
